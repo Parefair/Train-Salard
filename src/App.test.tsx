@@ -29,6 +29,9 @@ describe('App', () => {
       name: 'ล้าง',
     })
     expect(clearButtonElement).toBeInTheDocument()
+
+    const imageElement = screen.getByAltText('logo')
+    expect(imageElement).toBeInTheDocument()
   })
 
   test('render translate button', async () => {
@@ -46,9 +49,9 @@ describe('App', () => {
       name: 'แปล',
     })
 
-    await user.type(inputElement, '้ำสสน l;ylfu')
+    await user.type(inputElement, '้ำสสน l;ylfu ,k ฐ, ,')
     await user.click(translateButtonElement)
-    expect(outputElement).toHaveValue('hello สวัสดี')
+    expect(outputElement).toHaveValue('hello สวัสดี มา {} }')
   })
 
   test('render clear button', async () => {
@@ -69,5 +72,22 @@ describe('App', () => {
     await user.click(translateButtonElement)
     expect(inputElement).toHaveValue('')
     expect(outputElement).toHaveValue('')
+  })
+
+  test('input alert should not be show if have input', async () => {
+    user.setup()
+    render(<App />)
+    const inputElement = screen.getByRole('textbox', {
+      name: 'ข้อความก่อน debut',
+    })
+    const alertElement = screen.queryByText('กรุณาใส่ข้อความก่อนแปล');
+    await user.type(inputElement, '้ำ')
+    expect(alertElement).not.toBeInTheDocument()
+  })
+
+  test('input alert should be show if input is empty', () => {
+    render(<App />)
+    const alertElement = screen.queryByText('กรุณาใส่ข้อความก่อนแปล');
+    expect(alertElement).toBeInTheDocument()
   })
 })

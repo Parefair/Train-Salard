@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import logo from './logo.svg'
+import logo from './LogoV2.svg'
 
 function App() {
   const [text, setText] = useState('')
@@ -268,6 +268,11 @@ function App() {
                 >
                   แปล
                 </button>
+                {text == '' ? (
+                  <div className='text-pink'>กรุณาใส่ข้อความก่อนแปล</div>
+                ): <>
+                  <br />
+                </>}
                 <button
                   onClick={() => {
                     setText('')
