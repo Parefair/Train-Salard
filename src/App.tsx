@@ -269,10 +269,12 @@ function App() {
                   แปล
                 </button>
                 {text == '' ? (
-                  <div className='text-pink'>กรุณาใส่ข้อความก่อนแปล</div>
-                ): <>
-                  <br />
-                </>}
+                  <div className="text-pink">กรุณาใส่ข้อความก่อนแปล</div>
+                ) : (
+                  <>
+                    <br />
+                  </>
+                )}
                 <button
                   onClick={() => {
                     setText('')

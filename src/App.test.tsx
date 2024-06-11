@@ -80,14 +80,14 @@ describe('App', () => {
     const inputElement = screen.getByRole('textbox', {
       name: 'ข้อความก่อน debut',
     })
-    const alertElement = screen.queryByText('กรุณาใส่ข้อความก่อนแปล');
+    const alertElement = screen.queryByText('กรุณาใส่ข้อความก่อนแปล')
     await user.type(inputElement, '้ำ')
     expect(alertElement).not.toBeInTheDocument()
   })
 
   test('input alert should be show if input is empty', () => {
     render(<App />)
-    const alertElement = screen.queryByText('กรุณาใส่ข้อความก่อนแปล');
+    const alertElement = screen.queryByText('กรุณาใส่ข้อความก่อนแปล')
     expect(alertElement).toBeInTheDocument()
   })
 })
