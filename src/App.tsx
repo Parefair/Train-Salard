@@ -245,7 +245,7 @@ function App() {
             </div>
           </div>
           <div className="basis-3/4">
-            <div className="flex flex-row gap-4 h-[414px]">
+            <div className="flex flex-row gap-4 h-72">
               <div className="basis-2/5 w-full flex flex-col items-start">
                 <label htmlFor="input" className="text-3xl text-white pb-2">
                   ข้อความก่อน debut
@@ -261,7 +261,7 @@ function App() {
                   className="w-full p-4 text-blue text-lg h-full bg-white rounded placeholder:text-purple"
                 />
               </div>
-              <div className="basis-1/5 w-full flex flex-col gap-6 justify-center px-10">
+              <div className="basis-1/5 w-full flex flex-col gap-6 justify-center px-5">
                 <button
                   onClick={translate}
                   className="bg-pink text-blue text-2xl rounded h-10"
@@ -269,7 +269,9 @@ function App() {
                   แปล
                 </button>
                 {text == '' ? (
-                  <div className="text-pink">กรุณาใส่ข้อความก่อนแปล</div>
+                  <div className="text-pink text-sm">
+                    กรุณาใส่ข้อความก่อนแปล
+                  </div>
                 ) : (
                   <>
                     <br />
